@@ -22,3 +22,7 @@ This tests will fail because the code is not implemented yet, but they will go g
 
 2023-11-22 20:45:47
 I will TDD the solution using the outside-in approach starting with from the Restaurant class using the provided interface.
+
+2023-11-22 21:09:48
+Not used to plain JS anymore. I spent some time with basic setup and configuration.
+I have the first test passing and the main classes created.
