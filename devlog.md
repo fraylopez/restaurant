@@ -8,4 +8,7 @@ I am going to start by creating a domain model visualize the problem.
 I have a first draft of the domain model. Will identify the use cases next.
 
 2023-11-22 20:17:08
-2 actoras and 3 use cases identified.
+2 actors and 3 use cases identified.
+
+2023-11-22 20:19:48
+Tentatively identified a new use case for the host to be able arrange the tables in the restaurant.

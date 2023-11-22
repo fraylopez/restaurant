@@ -7,10 +7,12 @@ usecase RequestTable
 usecase Leave
 
 usecase LocateGroup
+usecase ArrangeTables
 
 Client --> RequestTable
 Client --> Leave
 
 Host --> LocateGroup
+Host --> ArrangeTables
 
 @enduml
