@@ -8,6 +8,15 @@ class Table {
   canAllocate(size) {
     return this._availableSeats >= size;
   }
+
+  allocate(group) {
+    this._availableSeats -= group.size;
+    group.allocate(this);
+  }
+
+  free(group) {
+    this._availableSeats += group.size;
+  }
 }
 
 module.exports = Table;
