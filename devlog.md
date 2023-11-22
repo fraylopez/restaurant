@@ -12,3 +12,6 @@ I have a first draft of the domain model. Will identify the use cases next.
 
 2023-11-22 20:19:48
 Tentatively identified a new use case for the host to be able arrange the tables in the restaurant.
+
+2023-11-22 20:21:23
+The instructions put emphasis on performance. I prefeer to focus on correctness first and then optimize for performance. I will use a TDD approach to develop the solution.
