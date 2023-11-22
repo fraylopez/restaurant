@@ -19,3 +19,6 @@ The instructions put emphasis on performance. I prefeer to focus on correctness 
 2023-11-22 20:43:46
 I decided to start with some acceptance tests describing the main use cases. I am using the Gherkin syntax to write the tests. This is sometimes called walking skeleton.
 This tests will fail because the code is not implemented yet, but they will go green as the solution evolves.
+
+2023-11-22 20:45:47
+I will TDD the solution using the outside-in approach starting with from the Restaurant class using the provided interface.

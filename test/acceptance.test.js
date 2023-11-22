@@ -1,4 +1,8 @@
-import { expect } from "chai";
+const { expect } = require("chai");
+const Restaurant = require("../src/Restaurant");
+const Table = require("../src/Table");
+const CustomerGroup = require("../src/CustomerGroup");
+
 describe("Restaurant acceptance tests", () => {
   describe("Feature: Allocate an arriving group", () => {
     let restaurant;
@@ -49,7 +53,7 @@ describe("Restaurant acceptance tests", () => {
       table = new Table(4);
       restaurant = new Restaurant([table]);
     });
-    it("And a group of 4 people", async () => {\
+    it("And a group of 4 people", async () => {
       group1 = new CustomerGroup(4);
     });
     it("When the group arrives and request table", async () => {
@@ -62,7 +66,7 @@ describe("Restaurant acceptance tests", () => {
     });
 
     it("When first group leaves", async () => {
-      await testApi.leave(group1);
+      await restaurant.leave(group1);
     });
 
     it("Then the second group should have been allocated", async () => {

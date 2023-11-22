@@ -1,3 +1,4 @@
 {
-  "mochaExplorer.files": "test/**/*.test.js"
+  "mochaExplorer.files": "test/**/*.test.js",
+  "mochaExplorer.require": "esm",
 }
