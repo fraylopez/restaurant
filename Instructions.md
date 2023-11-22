@@ -1,5 +1,5 @@
 Our restaurant has round tables.
-Tables come in different sizes that can accommodate 2, 3, 4, 5or 6 people.
+Tables come in different sizes that can accommodate 2, 3, 4, 5 or 6 people.
 People arrive at our restaurant in groups of 6 or less.
 People in the same group want to be seated at the same table.
 You can seat a group at any table that has enough empty seats for them.
