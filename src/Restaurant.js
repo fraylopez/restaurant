@@ -1,35 +1,28 @@
+const RestaurantRepository = require("./RestaurantRepository");
 class Restaurant {
-  tables = [];
-  groups = [];
+  repository;
   constructor(tables) {
-    this.tables = tables;
+    this.repository = new RestaurantRepository();
+    this.repository.addTables(tables);
   }
 
   arrives(group) {
-    const table = this._findFreeTable(group);
+    const table = this.repository.findFreeTable(group);
     table?.allocate(group);
-    this.groups.push(group);
+    this.repository.addGroup(group);
   }
 
   leave(group) {
     group.leave();
-    this.groups = this.groups.filter((g) => g !== group);
-    const waitingGroup = this._findWaitingGroup(group.size);
+    this.repository.removeGroup(group);
+    const waitingGroup = this.repository.findWaitingGroup(group.size);
     if (waitingGroup) {
       this.arrives(waitingGroup);
     }
   }
 
   locate(group) {
-    return this.groups.find((g) => g === group)?.table || null;
-  }
-
-  _findFreeTable(group) {
-    return this.tables.find((table) => table.canAllocate(group.size));
-  }
-
-  _findWaitingGroup(size) {
-    return this.groups.find((group) => group.size <= size);
+    return this.repository.findGroup(group)?.table || null;
   }
 }
 

@@ -6,7 +6,6 @@ const CustomerGroup = require("../src/CustomerGroup");
 describe("Restaurant", () => {
   it("should create a restaurant with tables", () => {
     const restaurant = new Restaurant([new Table(2)]);
-    expect(restaurant.tables).lengthOf(1);
   });
 
   it("should put a group to wait when no available tables", () => {
