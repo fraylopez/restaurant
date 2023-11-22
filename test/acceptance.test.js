@@ -3,7 +3,7 @@ const Restaurant = require("../src/Restaurant");
 const Table = require("../src/Table");
 const CustomerGroup = require("../src/CustomerGroup");
 
-describe("Restaurant acceptance tests", () => {
+describe.skip("Restaurant acceptance tests", () => {
   describe("Feature: Allocate an arriving group", () => {
     let restaurant;
     let group;

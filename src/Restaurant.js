@@ -1,18 +1,27 @@
 class Restaurant {
+  tables = [];
+  groups = [];
   constructor(tables) {
     this.tables = tables;
   }
 
   arrives(group) {
-    throw new Error("Not implemented");
+    const table = this._findFreeTable(group);
+    group.table = table;
+    this.groups.push(group);
   }
 
   leave(group) {
-    throw new Error("Not implemented");
+    group.table = null;
+    this.groups = this.groups.filter((g) => g !== group);
   }
 
   locate(group) {
-    throw new Error("Not implemented");
+    return this.groups.find((g) => g === group)?.table || null;
+  }
+
+  _findFreeTable(group) {
+    return this.tables.find((table) => table.canAllocate(group.size));
   }
 }
 
