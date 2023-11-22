@@ -26,3 +26,9 @@ I will TDD the solution using the outside-in approach starting with from the Res
 2023-11-22 21:09:48
 Not used to plain JS anymore. I spent some time with basic setup and configuration.
 I have the first test passing and the main classes created.
+
+2023-11-22 21:27:39
+Basic implementation of the Restaurant class. I am using a simple array to store data. I will refactor this later to use a more appropriate data structure since the instructions mention performance.
+
+2023-11-22 21:49:28
+Refactored the data layer to isolate from use cases logic and better focus on performance.
