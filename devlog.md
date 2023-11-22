@@ -15,3 +15,7 @@ Tentatively identified a new use case for the host to be able arrange the tables
 
 2023-11-22 20:21:23
 The instructions put emphasis on performance. I prefeer to focus on correctness first and then optimize for performance. I will use a TDD approach to develop the solution.
+
+2023-11-22 20:43:46
+I decided to start with some acceptance tests describing the main use cases. I am using the Gherkin syntax to write the tests. This is sometimes called walking skeleton.
+This tests will fail because the code is not implemented yet, but they will go green as the solution evolves.
