@@ -6,3 +6,6 @@ I am going to start by creating a domain model visualize the problem.
 
 2023-11-22 20:12:48
 I have a first draft of the domain model. Will identify the use cases next.
+
+2023-11-22 20:17:08
+2 actoras and 3 use cases identified.

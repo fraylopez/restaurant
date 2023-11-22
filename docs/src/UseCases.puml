@@ -1,0 +1,16 @@
+@startuml UseCases
+
+actor Client
+actor Host
+
+usecase RequestTable
+usecase Leave
+
+usecase LocateGroup
+
+Client --> RequestTable
+Client --> Leave
+
+Host --> LocateGroup
+
+@enduml
