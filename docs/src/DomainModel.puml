@@ -1,0 +1,30 @@
+@startuml DomainModel
+
+class Restaurant
+class Table
+class Seat
+class Action
+class RequestTable {
+  requestedSeats
+  timestamp
+}
+class Leave
+class Group {
+  size
+}
+
+Restaurant *--> "1..n" Table
+
+Table  *--> "2..6" Seat
+
+Table o--> Group : accomodates
+
+RequestTable -up-|> Action
+Leave -up-|> Action
+RequestTable --> Seat: "reserves"
+Leave --> Seat: "frees"
+
+Group --> Action
+
+
+@enduml
