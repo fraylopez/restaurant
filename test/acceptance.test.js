@@ -3,7 +3,7 @@ const Restaurant = require("../src/Restaurant");
 const Table = require("../src/Table");
 const CustomerGroup = require("../src/CustomerGroup");
 
-describe.skip("Restaurant acceptance tests", () => {
+describe("Restaurant acceptance tests", () => {
   describe("Feature: Allocate an arriving group", () => {
     let restaurant;
     let group;
@@ -61,7 +61,7 @@ describe.skip("Restaurant acceptance tests", () => {
     });
 
     it("And another group with more people than available requests a table", async () => {
-      group2 = new CustomerGroup(6);
+      group2 = new CustomerGroup(3);
       restaurant.arrives(group2);
     });
 

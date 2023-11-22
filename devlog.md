@@ -32,3 +32,9 @@ Basic implementation of the Restaurant class. I am using a simple array to store
 
 2023-11-22 21:49:28
 Refactored the data layer to isolate from use cases logic and better focus on performance.
+
+2023-11-22 21:52:49
+Acceptance tests passing.
+
+2023-11-22 21:53:14
+I will start working on performance now. I will guide myself by the tests and measure the performance of the solution on different implementations.
