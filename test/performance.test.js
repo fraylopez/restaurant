@@ -52,9 +52,9 @@ describe("Performance tests", () => {
           waitingGroups.forEach((group) => restaurant.arrives(group));
         });
         it(`Then waiting groups should be allocated on a table as soon as it gets freed `, () => {
-          for (let i = 0; i < testCase.numGroups; i++) {
-            restaurant.leave(groups[i].id);
-          }
+          groups.forEach((group) => {
+            restaurant.leave(group.id);
+          });
           waitingGroups.forEach((group) => {
             const locatedTable = restaurant.locate(group.id);
             expect(locatedTable).not.equal(null);

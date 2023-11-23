@@ -21,12 +21,11 @@ class RestaurantRepository1 {
   }
 
   findGroup(groupId) {
-    return this.waitingGroups.find((g) => g.id === groupId) || this.groups.find((g) => g.id === groupId);
+    return this.groups.find((g) => g.id === groupId);
   }
 
   removeGroup(groupId) {
     this.groups = this.groups.filter((g) => g.id !== groupId);
-    this.waitingGroups = this.waitingGroups.filter((g) => g.id !== groupId);
   }
 
   findFreeTable(groupSize) {
@@ -37,7 +36,7 @@ class RestaurantRepository1 {
     // find and remove the first group that fits
     const group = this.waitingGroups.find((g) => g.size <= freeSeats);
     if (group) {
-      this.removeGroup(group);
+      this.waitingGroups = this.waitingGroups.filter((g) => g.id !== group.id);
     }
     return group;
   }

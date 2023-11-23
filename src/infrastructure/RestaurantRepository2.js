@@ -17,7 +17,6 @@ class RestaurantRepository2 {
   }
 
   addWaitingGroup(group) {
-    // add to the end of the queue to keep the arrival order
     this.waitingGroups.push(group);
   }
 
@@ -27,7 +26,7 @@ class RestaurantRepository2 {
 
   removeGroup(groupId) {
     this.groups.delete(groupId);
-    this.waitingGroups = this.waitingGroups.filter((g) => g.id !== groupId);
+    this._fastRemoveFromArr(this.waitingGroups, (g) => g.id === groupId);
   }
 
   findFreeTable(groupSize) {
@@ -35,12 +34,17 @@ class RestaurantRepository2 {
   }
 
   findNextWaitingGroup(freeSeats) {
-    // find and remove the first group that fits
-    const group = this.waitingGroups.find((g) => g.size <= freeSeats);
-    if (group) {
-      this.removeGroup(group);
+    return this._fastRemoveFromArr(this.waitingGroups, (g) => g.size <= freeSeats);
+  }
+
+  _fastRemoveFromArr(arr, matchFn) {
+    const i = arr.findIndex(matchFn);
+    const item = i > -1 ? arr[i] : null;
+    if (i > -1) {
+      arr[i] = arr[arr.length - 1];
+      arr.pop();
     }
-    return group;
+    return item;
   }
 }
 

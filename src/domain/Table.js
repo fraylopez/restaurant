@@ -15,6 +15,7 @@ class Table {
 
   free(seats) {
     this._availableSeats += seats;
+    return this._availableSeats;
   }
 }
 

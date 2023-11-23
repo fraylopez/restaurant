@@ -7,9 +7,6 @@ class CustomerGroup {
   allocate(table) {
     this.table = table;
   }
-  leave() {
-    this.table?.free(this.size);
-  }
 }
 
 module.exports = CustomerGroup;

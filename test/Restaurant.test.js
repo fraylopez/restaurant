@@ -1,4 +1,3 @@
-const Restaurant = require("../src/Restaurant");
 const Table = require("../src/domain/Table");
 const expect = require("chai").expect;
 const { createRestaurantWithTables, createEmptyRestaurant } = require("./restaurantBuilder");
@@ -21,6 +20,16 @@ describe("Restaurant", () => {
     const group = createSingleGroup(2);
     restaurant.arrives(group);
     expect(restaurant.locate(group.id)).instanceOf(Table);
+  });
+
+  it("should allocate 2 waiting group when available tables", () => {
+    const restaurant = createRestaurantWithTables(2, 2);
+    const [group1, group2] = createGroups(2, 2);
+    const [group3, group4] = createGroups(2, 2);
+    [group1, group2, group3, group4].forEach((group) => restaurant.arrives(group));
+    [group1, group2].forEach((group) => restaurant.leave(group.id));
+    expect(restaurant.locate(group3.id)).instanceOf(Table);
+    expect(restaurant.locate(group4.id)).instanceOf(Table);
   });
 
   it("should put a group to wait when not enough free seats on the same table", () => {
