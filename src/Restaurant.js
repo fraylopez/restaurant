@@ -1,9 +1,8 @@
-const RestaurantRepository1 = require("./infrastructure/RestaurantRepository1");
-const RestaurantRepository2 = require("./infrastructure/RestaurantRepository2");
+const RestaurantRepository = require("./infrastructure/RestaurantRepository");
 class Restaurant {
   repository;
   constructor(tables, repository = null) {
-    this.repository = repository || new RestaurantRepository2();
+    this.repository = repository || new RestaurantRepository();
     this.repository.addTables(tables);
   }
 

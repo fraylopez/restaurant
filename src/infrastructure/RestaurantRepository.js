@@ -1,4 +1,4 @@
-class RestaurantRepository2 {
+class RestaurantRepository {
   tables;
   groups;
   waitingGroups;
@@ -48,4 +48,4 @@ class RestaurantRepository2 {
   }
 }
 
-module.exports = RestaurantRepository2;
+module.exports = RestaurantRepository;
