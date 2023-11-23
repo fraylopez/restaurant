@@ -38,3 +38,6 @@ Acceptance tests passing.
 
 2023-11-22 21:53:14
 I will start working on performance now. I will guide myself by the tests and measure the performance of the solution on different implementations.
+
+2023-11-23 11:59:43
+Catch a bug while testinmg performance. Added a new test to reproduce the bug and fix it.
