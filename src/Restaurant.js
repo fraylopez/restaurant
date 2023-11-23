@@ -7,15 +7,20 @@ class Restaurant {
   }
 
   arrives(group) {
-    const table = this.repository.findFreeTable(group);
-    table?.allocate(group);
     this.repository.addGroup(group);
+    const table = this.repository.findFreeTable(group);
+    if (table) {
+      table.allocate(group);
+    } else {
+      this.repository.addWaitingGroup(group);
+    }
   }
 
   leave(group) {
     group.leave();
+    const freeSeats = group.table?._availableSeats;
     this.repository.removeGroup(group);
-    const waitingGroup = this.repository.findWaitingGroup(group.size);
+    const waitingGroup = freeSeats ? this.repository.findNextWaitingGroup(freeSeats) : null;
     if (waitingGroup) {
       this.arrives(waitingGroup);
     }

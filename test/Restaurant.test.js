@@ -42,6 +42,17 @@ describe("Restaurant", () => {
     expect(restaurant.locate(group2)).equal(table);
   });
 
+  it("should allocate a bigger waiting group when enough free seats are freed", () => {
+    const table = new Table(3);
+    const restaurant = new Restaurant([table]);
+    const group1 = new CustomerGroup(2);
+    const group2 = new CustomerGroup(3);
+    restaurant.arrives(group1);
+    restaurant.arrives(group2);
+    restaurant.leave(group1);
+    expect(restaurant.locate(group2)).equal(table);
+  });
+
   it("should not allocate a waiting group when NOT enough free seats are freed", () => {
     const table = new Table(2);
     const restaurant = new Restaurant([table]);
