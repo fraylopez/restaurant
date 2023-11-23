@@ -1,7 +1,6 @@
-const CustomerGroup = require("../src/CustomerGroup");
-const Restaurant = require("../src/Restaurant");
-const Table = require("../src/Table");
 const { expect } = require("chai");
+const { createRestaurantWithTables } = require("./createRestaurantWithTables");
+const { createGroups } = require("./createGroups");
 
 describe("Performance tests", () => {
   [
@@ -26,7 +25,7 @@ describe("Performance tests", () => {
         });
         it(`Then all groups should be allocated on a table`, () => {
           groups.forEach((group) => {
-            const locatedTable = restaurant.locate(group);
+            const locatedTable = restaurant.locate(group.id);
             expect(locatedTable).not.equal(null);
           });
         });
@@ -54,10 +53,10 @@ describe("Performance tests", () => {
         });
         it(`Then waiting groups should be allocated on a table as soon as it gets freed `, () => {
           for (let i = 0; i < testCase.numGroups; i++) {
-            restaurant.leave(groups[i]);
+            restaurant.leave(groups[i].id);
           }
           waitingGroups.forEach((group) => {
-            const locatedTable = restaurant.locate(group);
+            const locatedTable = restaurant.locate(group.id);
             expect(locatedTable).not.equal(null);
           });
         });
@@ -65,12 +64,3 @@ describe("Performance tests", () => {
     });
   });
 });
-
-function createRestaurantWithTables(numTables, tableSize) {
-  const tables = Array.from({ length: numTables }, () => new Table(tableSize));
-  return new Restaurant(tables);
-}
-
-function createGroups(numGroups, groupSize) {
-  return Array.from({ length: numGroups }, () => new CustomerGroup(groupSize));
-}

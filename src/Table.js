@@ -9,13 +9,12 @@ class Table {
     return this._availableSeats >= size;
   }
 
-  allocate(group) {
-    this._availableSeats -= group.size;
-    group.allocate(this);
+  allocate(people) {
+    this._availableSeats -= people;
   }
 
-  free(group) {
-    this._availableSeats += group.size;
+  free(seats) {
+    this._availableSeats += seats;
   }
 }
 

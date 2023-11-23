@@ -41,3 +41,7 @@ I will start working on performance now. I will guide myself by the tests and me
 
 2023-11-23 11:59:43
 Catch a bug while testinmg performance. Added a new test to reproduce the bug and fix it.
+
+2023-11-23 12:06:45
+With initial performance tests in place I will start working on the performance of the solution.
+First idea is to use a Map to store the groups and a Set to store tables. Will use an array for the waiting groups to respent the arrival order.
