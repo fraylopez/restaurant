@@ -1,5 +1,6 @@
 {
   "mochaExplorer.files": "test/**/*.test.js",
   "mochaExplorer.require": "esm",
-  "mochaExplorer.timeout": 10000
+  "mochaExplorer.timeout": 10000,
+  "testExplorer.mergeSuites": true,
 }
