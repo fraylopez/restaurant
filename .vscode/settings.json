@@ -3,4 +3,5 @@
   "mochaExplorer.require": "esm",
   "mochaExplorer.timeout": 10000,
   "testExplorer.mergeSuites": true,
+  "plantuml.exportOutDir": "docs/output",
 }

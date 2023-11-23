@@ -4,12 +4,12 @@ class Restaurant
 class Table
 class Seat
 class Action
-class RequestTable {
+class Arrive {
   requestedSeats
   timestamp
 }
 class Leave
-class Group {
+class CustomerGroup {
   size
 }
 
@@ -17,14 +17,14 @@ Restaurant *--> "1..n" Table
 
 Table  *--> "2..6" Seat
 
-Table o--> Group : accomodates
+Table o--> CustomerGroup : accomodates
 
-RequestTable -up-|> Action
+Arrive -up-|> Action
 Leave -up-|> Action
-RequestTable --> Seat: "reserves"
+Arrive --> Seat: "reserves"
 Leave --> Seat: "frees"
 
-Group --> Action
+CustomerGroup --> Action
 
 
 @enduml

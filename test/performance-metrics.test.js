@@ -2,23 +2,34 @@ const Restaurant = require("../src/Restaurant");
 const { createRestaurantWithTables } = require("./restaurantBuilder");
 const { createGroups } = require("./groupBuilder");
 
+const metrics = {};
 describe("Performance metrics", () => {
   const numCalls = 50000;
   let restaurant;
   let groups;
+
+  let time;
+  let memory;
   beforeEach(() => {
     restaurant = createRestaurantWithTables(numCalls, 2);
     groups = createGroups(numCalls, 2);
   });
+
+  after(() => {
+    console.table(metrics);
+    console.log(["time (µs)", "memory (bytes)"]);
+  });
+
   describe(`${Restaurant.prototype.arrives.name}`, () => {
+    after(() => {
+      addMetrics(Restaurant.prototype.arrives.name, time, memory, numCalls);
+    });
     it("time", () => {
-      const elapsed = getTime(() => groups.forEach((group) => restaurant.arrives(group)));
-      console.log(`${Restaurant.prototype.arrives.name} took ${elapsed / numCalls} ms`);
+      time = getTime(() => groups.forEach((group) => restaurant.arrives(group)));
     });
 
     it("memory", () => {
-      const mem = getMemoryUsage(() => groups.forEach((group) => restaurant.arrives(group)));
-      console.log(`${Restaurant.prototype.arrives.name} took ${mem / numCalls} bytes`);
+      memory = getMemoryUsage(() => groups.forEach((group) => restaurant.arrives(group)));
     });
   });
 
@@ -26,14 +37,15 @@ describe("Performance metrics", () => {
     beforeEach(() => {
       groups.forEach((group) => restaurant.arrives(group));
     });
+    after(() => {
+      addMetrics(Restaurant.prototype.leave.name, time, memory, numCalls);
+    });
     it("time", () => {
-      const elapsed = getTime(() => groups.forEach((group) => restaurant.leave(group.id)));
-      console.log(`${Restaurant.prototype.leave.name} took ${elapsed / numCalls} ms`);
+      time = getTime(() => groups.forEach((group) => restaurant.leave(group.id)));
     });
 
     it("memory", () => {
-      const mem = getMemoryUsage(() => groups.forEach((group) => restaurant.leave(group.id)));
-      console.log(`${Restaurant.prototype.leave.name} took ${mem / numCalls} bytes`);
+      memory = getMemoryUsage(() => groups.forEach((group) => restaurant.leave(group.id)));
     });
   });
 
@@ -41,14 +53,15 @@ describe("Performance metrics", () => {
     beforeEach(() => {
       groups.forEach((group) => restaurant.arrives(group));
     });
+    after(() => {
+      addMetrics(Restaurant.prototype.locate.name, time, memory, numCalls);
+    });
     it("time", () => {
-      const elapsed = getTime(() => groups.forEach((group) => restaurant.locate(group.id)));
-      console.log(`${Restaurant.prototype.locate.name} took ${elapsed / numCalls} ms`);
+      time = getTime(() => groups.forEach((group) => restaurant.locate(group.id)));
     });
 
     it("memory", () => {
-      const mem = getMemoryUsage(() => groups.forEach((group) => restaurant.locate(group.id)));
-      console.log(`${Restaurant.prototype.locate.name} took ${mem / numCalls} bytes`);
+      memory = getMemoryUsage(() => groups.forEach((group) => restaurant.locate(group.id)));
     });
   });
 });
@@ -64,4 +77,11 @@ function getTime(fn) {
   fn();
   const end = Date.now();
   return end - start;
+}
+
+function addMetrics(method, time, mem, numCalls) {
+  metrics[method] = {
+    time: (1000 * time) / numCalls,
+    memory: mem / numCalls,
+  };
 }

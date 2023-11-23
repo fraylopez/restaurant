@@ -1,8 +1,5 @@
 {
   "recursive": true,
   "spec": "test/**/*.test.js",
-  "timeout": 60000,
-  "require": [
-    "esm"
-  ]
+  "timeout": 60000
 }

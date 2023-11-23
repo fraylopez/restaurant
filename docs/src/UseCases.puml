@@ -1,16 +1,16 @@
 @startuml UseCases
 
-actor Client
+actor CustomerGroup
 actor Host
 
-usecase RequestTable
+usecase Arrive
 usecase Leave
 
 usecase LocateGroup
 usecase ArrangeTables
 
-Client --> RequestTable
-Client --> Leave
+CustomerGroup --> Arrive
+CustomerGroup --> Leave
 
 Host --> LocateGroup
 Host --> ArrangeTables
