@@ -1,6 +1,6 @@
 const { expect } = require("chai");
-const { createRestaurantWithTables } = require("./createRestaurantWithTables");
-const { createGroups } = require("./createGroups");
+const { createRestaurantWithTables } = require("./restaurantBuilder");
+const { createGroups } = require("./groupBuilder");
 
 describe("Performance tests", () => {
   [

@@ -2,8 +2,8 @@ const { expect } = require("chai");
 const Restaurant = require("../src/Restaurant");
 const Table = require("../src/domain/Table");
 const CustomerGroup = require("../src/domain/CustomerGroup");
-const { createRestaurantWithTables } = require("./createRestaurantWithTables");
-const { createSingleGroup } = require("./createGroups");
+const { createRestaurantWithTables } = require("./restaurantBuilder");
+const { createSingleGroup } = require("./groupBuilder");
 
 describe("Restaurant acceptance tests", () => {
   describe("Feature: Allocate an arriving group", () => {

@@ -1,8 +1,8 @@
 const Restaurant = require("../src/Restaurant");
 const Table = require("../src/domain/Table");
 const expect = require("chai").expect;
-const { createRestaurantWithTables } = require("./createRestaurantWithTables");
-const { createSingleGroup, createGroups } = require("./createGroups");
+const { createRestaurantWithTables, createEmptyRestaurant } = require("./restaurantBuilder");
+const { createSingleGroup, createGroups } = require("./groupBuilder");
 
 describe("Restaurant", () => {
   it("should create a restaurant with tables", () => {
@@ -10,7 +10,7 @@ describe("Restaurant", () => {
   });
 
   it("should put a group to wait when no available tables", () => {
-    const restaurant = new Restaurant([]);
+    const restaurant = createEmptyRestaurant();
     const group = createSingleGroup(2);
     restaurant.arrives(group);
     expect(restaurant.locate(group.id)).equal(null);
@@ -61,7 +61,7 @@ describe("Restaurant", () => {
   });
 
   it("should allow a waiting group to leave", () => {
-    const restaurant = new Restaurant([]);
+    const restaurant = createEmptyRestaurant();
     const group1 = createSingleGroup(2);
     restaurant.arrives(group1);
     restaurant.leave(group1.id);
