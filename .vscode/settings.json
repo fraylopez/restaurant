@@ -1,4 +1,5 @@
 {
   "mochaExplorer.files": "test/**/*.test.js",
   "mochaExplorer.require": "esm",
+  "mochaExplorer.timeout": 10000
 }
