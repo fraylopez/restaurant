@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const Restaurant = require("../src/Restaurant");
-const Table = require("../src/Table");
-const CustomerGroup = require("../src/CustomerGroup");
+const Table = require("../src/domain/Table");
+const CustomerGroup = require("../src/domain/CustomerGroup");
 const { createRestaurantWithTables } = require("./createRestaurantWithTables");
 const { createSingleGroup } = require("./createGroups");
 

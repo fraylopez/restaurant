@@ -1,17 +1,15 @@
-class RestaurantRepository {
+class RestaurantRepository2 {
   tables;
   groups;
   waitingGroups;
   constructor() {
-    this.tables = new Set();
+    this.tables = [];
     this.groups = new Map();
     this.waitingGroups = [];
   }
 
   addTables(tables) {
-    tables.forEach((element) => {
-      this.tables.add(element);
-    });
+    this.tables = tables;
   }
 
   addGroup(group) {
@@ -27,17 +25,13 @@ class RestaurantRepository {
     return this.groups.get(groupId);
   }
 
-  removeGroup(group) {
-    this.groups.delete(group);
-    this.waitingGroups = this.waitingGroups.filter((g) => g !== group);
+  removeGroup(groupId) {
+    this.groups.delete(groupId);
+    this.waitingGroups = this.waitingGroups.filter((g) => g.id !== groupId);
   }
 
-  findFreeTable(group) {
-    for (const table of this.tables) {
-      if (table.canAllocate(group.size)) {
-        return table;
-      }
-    }
+  findFreeTable(groupSize) {
+    return this.tables.find((table) => table.canAllocate(groupSize));
   }
 
   findNextWaitingGroup(freeSeats) {
@@ -50,4 +44,4 @@ class RestaurantRepository {
   }
 }
 
-module.exports = RestaurantRepository;
+module.exports = RestaurantRepository2;

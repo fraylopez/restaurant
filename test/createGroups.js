@@ -1,4 +1,4 @@
-const CustomerGroup = require("../src/CustomerGroup");
+const CustomerGroup = require("../src/domain/CustomerGroup");
 
 function createGroups(numGroups, groupSize) {
   return Array.from({ length: numGroups }, () => createSingleGroup(groupSize));

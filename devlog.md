@@ -45,3 +45,6 @@ Catch a bug while testinmg performance. Added a new test to reproduce the bug an
 2023-11-23 12:06:45
 With initial performance tests in place I will start working on the performance of the solution.
 First idea is to use a Map to store the groups and a Set to store tables. Will use an array for the waiting groups to respent the arrival order.
+
+2023-11-23 17:05:02
+Map improved performance on group searches. Set was not a good idea. I'll keep the array

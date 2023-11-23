@@ -1,5 +1,5 @@
 const Restaurant = require("../src/Restaurant");
-const Table = require("../src/Table");
+const Table = require("../src/domain/Table");
 
 function createRestaurantWithTables(numTables, tableSize) {
   const tables = Array.from({ length: numTables }, () => new Table(tableSize));
