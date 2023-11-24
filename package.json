@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha",
+    "test:unit": "mocha **/Restaurant.test.js",
     "test:acceptance": "mocha --exclude !**/*acceptance.test.js",
     "test:performance": "mocha --exclude !**/*performance.test.js",
     "test:performance:metrics": "mocha --exclude !**/*performance-metrics.test.js"
