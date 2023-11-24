@@ -105,7 +105,8 @@ At a certain point the skeleton of the system was in place and the tests were gr
 The next step was to verify that the system was able to operate normally under load and to identify possible bottlenecks.
 
 Fast access data structures and algorithms were used to manipulate the data.
-In future iterations, LRU Cache and Bloom Filter could be used to improve performance.
+A Map was used to store all groups since access is O(1)
+A linked list was used to store the waiting groups since deletion is O(1)
 
 Since performance was a concern, I decided to use a [performance test](test/performance.test.js) to guide the development of the system. This test is not a unit test but an acceptance test. It is not intended to be run in a CI environment but to be run locally in order to get metrics about the performance of the system. The test is not run by default. It can be run using the following command:
 
@@ -127,8 +128,8 @@ Average from 50000 calls
 ┌─────────┬───────┬───────────┐
 │ (index) │ time  │  memory   │
 ├─────────┼───────┼───────────┤
-│ arrives │ 22.56 │ 171.63168 │
-│  leave  │  0.2  │ 229.23824 │
+│ arrives │ 22.48 │ 170.00224 │
+│  leave  │  0.1  │ 36.76384  │
 │ locate  │ 0.06  │  0.00592  │
 └─────────┴───────┴───────────┘
 time (µs)
