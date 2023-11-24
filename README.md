@@ -95,6 +95,9 @@ The system has been tested at different levels:
 At a certain point the skeleton of the system was in place and the tests were green.
 The next step was to verify that the system was able to operate normally under load and to identify possible bottlenecks.
 
+Fast access data structures and algorithms were used to manipulate the data.
+In future iterations, LRU Cache and Bloom Filter could be used to improve performance.
+
 Since performance was a concern, I decided to use a [performance test](test/performance.test.js) to guide the development of the system. This test is not a unit test but an acceptance test. It is not intended to be run in a CI environment but to be run locally in order to get metrics about the performance of the system. The test is not run by default. It can be run using the following command:
 
 ```bash
@@ -110,20 +113,24 @@ npm test:performance:metrics | yarn test:performance:metrics
 Time and memory estimations for the main operations of the system are:
 
 ```
+Average from 50000 calls
+
 ┌─────────┬───────┬───────────┐
-│ (index) │ time  │ memory    │
+│ (index) │ time  │  memory   │
 ├─────────┼───────┼───────────┤
-│ arrives │ 22.72 │ 169.74272 │
-│ leave   │ 0.18  │ 9.58064   │
-│ locate  │ 0.08  │ 0.01264   │
+│ arrives │ 22.56 │ 171.63168 │
+│  leave  │  0.2  │ 229.23824 │
+│ locate  │ 0.06  │  0.00592  │
 └─────────┴───────┴───────────┘
 time (µs)
 memory (bytes)
+
 ```
 
 ## Time spent
 
-The time spent in the development of the system has been:
-Documentation: 20 minutes
-Code+Test+Performance: 2.5 hours
-Metrics: 1 hour
+Time spent in the development, testing and documentation of the system:
+
+- Code+Test+Performance: 2.5 hours
+- Metrics: 1 hour
+- Documentation: 20 minutes
