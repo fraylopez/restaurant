@@ -113,7 +113,7 @@ The next step was to verify that the system was able to operate normally under l
 Fast access data structures and algorithms were used to manipulate the data.
 
 - A Map was used to store all groups since access is O(1)
-- A linked list was used to store the waiting groups since deletion is O(1)
+- A linked list was used to store the waiting groups since deletion is memory O(1)
 - An array was used to store the tables since finding the first table with enough seats is O(n)
 
 Since performance was a concern, I decided to use a [performance test](test/performance.test.js) to guide the development of the system. This test is not a unit test but an acceptance test. It is not intended to be run in a CI environment but to be run locally in order to get metrics about the performance of the system. The test is not run by default. It can be run using the following command:
