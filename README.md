@@ -131,6 +131,5 @@ memory (bytes)
 
 Time spent in the development, testing and documentation of the system:
 
-- Code+Test+Performance: 2.5 hours
-- Metrics: 1 hour
-- Documentation: 20 minutes
+- Code + Test + Performance: 2.5 hours
+- Metrics + Documentation: 1 hour
