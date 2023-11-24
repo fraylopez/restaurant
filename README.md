@@ -1,5 +1,14 @@
 # Customer Allocation System on a Restaurant
 
+- [Intention and context](#intention-and-context)
+- [Development process](#development-process)
+  - [Domain model](#domain-model)
+  - [Use cases](#use-cases)
+- [Pragmatic development approach](#pragmatic-development-approach)
+- [Testing](#testing)
+- [Performance](#performance)
+- [Time spent](#time-spent)
+
 ## Intention and context
 
 The system optimizes the allocation of customers in a restaurant by grouping them in the same table.
