@@ -29,6 +29,12 @@ Dev dependencies used:
 - [Chai](https://www.chaijs.com/): Assertion library.
 - [Eslint](https://eslint.org/): Linter.
 
+To install the dependencies:
+
+```bash
+npm install | yarn install
+```
+
 To run the tests:
 
 ```bash
